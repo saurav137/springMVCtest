@@ -10,10 +10,12 @@ import javax.servlet.http.HttpServletRequest;
 public class UserController {
 
     @PostMapping("/show")
-    public ModelAndView getName(HttpServletRequest req){
-        String str=req.getParameter("name");
-        ModelAndView modelAndView=new ModelAndView("display");
-        modelAndView.addObject("value",str);
-        return  modelAndView;
+    public ModelAndView getName(HttpServletRequest req) {
+        int numb1 = Integer.parseInt(req.getParameter("numb1"));
+        int numb2 = Integer.parseInt(req.getParameter("numb2"));
+
+        ModelAndView modelAndView = new ModelAndView("display");
+        modelAndView.addObject("value", String.valueOf(numb1 + numb2))  ;
+        return modelAndView;
     }
 }
